@@ -2,7 +2,7 @@
 
 This is my composed list of daily using snippets.
 
-# Routing IP
+# System
 
 ```shell
 sudo route -n add -net {Target IP} {Gateway IP}
