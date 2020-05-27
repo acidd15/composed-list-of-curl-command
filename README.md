@@ -4,6 +4,8 @@ This is my composed list of daily using snippets.
 
 # System
 
+Adding a route.
+
 ```shell
 sudo route -n add -net {Target IP} {Gateway IP}
 ```
