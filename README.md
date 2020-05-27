@@ -44,6 +44,12 @@ Resetting offset of the topic of the specific consummer group.
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-consumer-groups.sh --bootstrap-server {Server list. e.g. kafka-1:9092} --group {Consummer group name} --topic {Topic name} --reset-offsets --to-earliest —execute
 ```
 
+Describing status of all consummer group.
+
+```shell
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-consumer-groups.sh --bootstrap-server {Server list. e.g. kafka-1:9092} --all-groups --describe
+```
+
 # ETC
 
 Analyzing MySQL slow log.
