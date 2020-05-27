@@ -10,8 +10,14 @@ sudo route -n add -net {Target IP} {Gateway IP}
 
 # CURL
 
-Request with body.
+Request with json body.
 
 ```shell
-curl -X PUT http://localhost:8081/config -d '{"compatibility": "NONE"}' -H "Content-Type:application/json"
+sudo curl -X PUT http://localhost:8081/config -d '{"compatibility": "NONE"}' -H "Content-Type:application/json"
+```
+
+Download file through proxy server.
+
+```shell
+sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
 ```
