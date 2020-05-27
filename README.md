@@ -69,7 +69,7 @@ sudo vi /etc/docker/daemon.json
 }
 ```
 
-Setting proxy.
+Setting proxy for docker.
 
 ```shell
 sudo mkdir /etc/systemd/system/docker.service.d
