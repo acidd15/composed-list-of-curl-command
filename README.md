@@ -21,7 +21,7 @@ Acquire::http::Proxy "{PROXY SERVER}";
 
 # Docker
 
-Install docker in Ubuntu.
+Installing docker in Ubuntu.
 
 ```shell
 sudo apt update
