@@ -10,6 +10,15 @@ Adding a route.
 sudo route -n add -net {Target IP} {Gateway IP}
 ```
 
+Setting apt proxy.
+
+```shell
+sudo vi /etc/apt/apt.conf.d/01http-proxy
+
+# Enter following config.
+Acquire::http::Proxy "{PROXY SERVER}";
+```
+
 # Docker
 
 Install docker in Ubuntu.
@@ -58,6 +67,21 @@ sudo vi /etc/docker/daemon.json
     {"base":"10.17.0.0/16","size":24}
   ]
 }
+```
+
+Setting proxy.
+
+```shell
+sudo mkdir /etc/systemd/system/docker.service.d
+sudo vi /etc/systemd/system/docker.service.d/http-proxy.conf
+# Enther following config.
+[Service]
+Environment="HTTP_PROXY={PROXY SERVER}"
+
+sudo systemctl daemon-reload
+
+# Confirm the environment value.
+sudo systemctl show --property Environment docker
 ```
 
 # CURL
