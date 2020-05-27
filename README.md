@@ -27,7 +27,13 @@ sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
 Using MySQL client with MySQL docker.
 
 ```shell
-sudo docker run -it --rm mysql mysql -h{Server Host} -P{Server Port} -u{User Id}  -p
+sudo docker run -it --rm mysql mysql -h{Server host} -P{Server port} -u{User ID}  -p
+```
+
+Dumping specific table data.
+
+```shell
+sudo docker run -i mysql sh -c "exec mysqldump -h{Server host} -u{User ID} -p --lock-tables=false --column-statistics=0 --single-transaction --no-create-info {Space separated table list} --where {Condition if you need}" > output_file
 ```
 
 # ETC
