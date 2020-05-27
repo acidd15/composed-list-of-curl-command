@@ -50,6 +50,18 @@ Describing status of all consummer group.
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-consumer-groups.sh --bootstrap-server {Server list. e.g. kafka-1:9092} --all-groups --describe
 ```
 
+Monitoring topic.
+
+```shell
+docker-compose exec connect /kafka/bin/kafka-console-consumer.sh \
+    --bootstrap-server {Server list. e.g. kafka-1:9092} \
+    --from-beginning \
+    --property print.key=true \
+    --formatter io.confluent.kafka.formatter.AvroMessageFormatter \
+    --property schema.registry.url={Schema registry server if you using any} \
+    --topic {Topic name}
+```
+
 # ETC
 
 Analyzing MySQL slow log.
