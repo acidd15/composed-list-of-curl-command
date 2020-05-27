@@ -22,7 +22,7 @@ Download a file through proxy server.
 sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
 ```
 
-# Docker
+# Docker - MySQL
 
 Using MySQL client with MySQL docker.
 
@@ -34,6 +34,14 @@ Dumping out specific table data.
 
 ```shell
 sudo docker run -i mysql sh -c "exec mysqldump -h{Server host} -u{User ID} -p --lock-tables=false --column-statistics=0 --single-transaction --no-create-info {DB name} {Space separated table list} --where {Condition if you need}" > output_file
+```
+
+# Docker - Kafka
+
+Resetting offset of the topic of the specific consummer group.
+
+```shell
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-consumer-groups.sh --bootstrap-server {Server list. e.g. kafka-1:9092} --group {Consummer group name} --topic {Topic name} --reset-offsets --to-earliest —execute
 ```
 
 # ETC
