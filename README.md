@@ -1,6 +1,6 @@
-# Frequently Used Command
+# Frequently Used Snippet
 
-This is my composed list of daily using command.
+This is my composed list of daily using snippets.
 
 # Routing IP
 
