@@ -24,7 +24,7 @@ sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
 
 # Docker
 
-Using mysql client with msyql docker.
+Using MySQL client with MySQL docker.
 
 ```shell
 sudo docker run -it --rm mysql mysql -h{Server Host} -P{Server Port} -u{User Id}  -p
@@ -32,7 +32,7 @@ sudo docker run -it --rm mysql mysql -h{Server Host} -P{Server Port} -u{User Id}
 
 # ETC
 
-Analyzing MysQL slow log.
+Analyzing MySQL slow log.
 
 ```
 pt-query-digest slow7.log > report-slow7.txt
