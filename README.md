@@ -19,6 +19,12 @@ sudo vi /etc/apt/apt.conf.d/01http-proxy
 Acquire::http::Proxy "{PROXY SERVER}";
 ```
 
+Setting alias to lo interface.
+
+```shell
+sudo ifconfig lo0 alias 10.200.10.1/24
+```
+
 # Docker
 
 Installing docker in Ubuntu.
