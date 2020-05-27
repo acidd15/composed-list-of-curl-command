@@ -90,20 +90,6 @@ Creating docker network.
 docker network create --gateway 10.255.0.1 --subnet 10.255.0.0/16 review-docker-net
 ```
 
-# CURL
-
-Requesting with json body.
-
-```shell
-sudo curl -X PUT http://localhost:8081/config -d '{"compatibility": "NONE"}' -H "Content-Type:application/json"
-```
-
-Downloading a file through proxy server.
-
-```shell
-sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
-```
-
 # Docker - MySQL
 
 Using MySQL client with MySQL docker.
@@ -142,6 +128,20 @@ docker-compose exec connect /kafka/bin/kafka-console-consumer.sh \
     --formatter io.confluent.kafka.formatter.AvroMessageFormatter \
     --property schema.registry.url={Schema registry server if you using any} \
     --topic {Topic name}
+```
+
+# CURL
+
+Requesting with json body.
+
+```shell
+sudo curl -X PUT http://localhost:8081/config -d '{"compatibility": "NONE"}' -H "Content-Type:application/json"
+```
+
+Downloading a file through proxy server.
+
+```shell
+sudo curl --proxy {Proxy Server} -L {Location to download} -o {Path to save}
 ```
 
 # ETC
