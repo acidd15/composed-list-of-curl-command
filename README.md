@@ -1,4 +1,4 @@
-# Frequently Used Snippet
+# Frequently Used Snippets
 
 This is my composed list of daily using snippets.
 
