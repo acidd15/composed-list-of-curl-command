@@ -172,6 +172,13 @@ docker-compose -f docker-compose-something.yaml exec {Service name of kafka cont
     --replication-factor {Replication factor. e.g. 1} --partitions {Partition size} --topic {Topic name}
 ```
 
+Monitoring partition of topic.
+
+```shell
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-topics.sh \
+    --describe --zookeeper {Zookeeper host/node. e.g. zookeeper-1:2181/kafka} --topic {Topic name}
+```
+
 # CURL
 
 Requesting with json body.
