@@ -25,6 +25,34 @@ Setting alias to lo interface.
 sudo ifconfig lo0 alias 10.200.10.1/24
 ```
 
+Sending a file to multiple hosts using scp.
+
+```shell
+#!/bin/bash
+
+set -e
+
+USER=$1
+FILE=$2
+
+HOSTS=(
+  # Put your hosts here
+)
+
+read -s -p "Password For $USER: " PASSWORD
+
+for HOST in "${HOSTS[@]}"
+do
+    expect -c "
+    spawn /usr/bin/scp $FILE $USER@$HOST:~/
+    expect {
+    "*password:*" { send $PASSWORD\r;interact }
+    }
+    exit
+    "
+done
+```
+
 # Docker
 
 Installing docker in Ubuntu.
