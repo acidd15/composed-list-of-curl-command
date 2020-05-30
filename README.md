@@ -127,13 +127,21 @@ docker-compose -f docker-compose-something.yaml exec {Service name of kafka cont
 Monitoring topic.
 
 ```shell
-docker-compose exec connect /kafka/bin/kafka-console-consumer.sh \
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-console-consumer.sh \
     --bootstrap-server {Server list. e.g. kafka-1:9092} \
     --from-beginning \
     --property print.key=true \
     --formatter io.confluent.kafka.formatter.AvroMessageFormatter \
     --property schema.registry.url={Schema registry server if you using any} \
     --topic {Topic name}
+```
+
+Creating topic.
+
+```shell
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-topics.sh \
+    --create --bootstrap-server {Server list. e.g. kafka-1:9092} \
+    --replication-factor {Replication factor. e.g. 1} --partitions {Partition size} --topic {Topic name}
 ```
 
 # CURL
