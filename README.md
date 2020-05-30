@@ -59,6 +59,14 @@ SSH Tunelling. Local forwarding.
 ssh -L 8080:target_host:8080 user@gateway_host
 ```
 
+Customizing shell prompt.
+
+```
+# Put this line to .bash_profile in your home directory.
+# Result: 736 [토  5 30 11:43:47] m0rph2us:git $ 
+export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[0;101m\][\d \t]\[\033[0;35m\] \u\[\033[0m\]:\W $ "
+```
+
 # Docker
 
 Installing docker in Ubuntu.
