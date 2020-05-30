@@ -135,7 +135,7 @@ sudo systemctl show --property Environment docker
 Creating docker network.
 
 ```shell
-docker network create --gateway 10.255.0.1 --subnet 10.255.0.0/16 review-docker-net
+docker network create --gateway 10.255.0.1 --subnet 10.255.0.0/16 debezium-docker-net
 ```
 
 # Docker - MySQL
