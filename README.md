@@ -205,7 +205,7 @@ Inspecting debezium offset.
 docker run -it --rm edenhill/kafkacat:1.5.0 -b {Server list. e.g. kafka-1:9092} -C -t cdc_connect_offsets -f 'Partition(%p) %k %s\n'
 ```
 
-Changing debezium offset. See (How to change the offsets of the source database?)[https://debezium.io/documentation/faq/#how_to_change_the_offsets_of_the_source_database].
+Changing debezium offset. See https://debezium.io/documentation/faq/#how_to_change_the_offsets_of_the_source_database.
 
 ```shell
 echo '["mysql-connector-db",{"server":"cdc_db"}]|{"ts_sec":1590117090,"file":"mysql-bin.000636","pos":57737,"row":1,"server_id":1000241,"event":2}' | docker run -i -a stdin --rm edenhill/kafkacat:1.5.0 -P -b {Server list. e.g. kafka-1:9092} -t cdc_connect_offsets -K \| -p {Partition Number}
