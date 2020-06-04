@@ -152,7 +152,7 @@ Dumping out specific table data.
 sudo docker run -i mysql sh -c "exec mysqldump -h{Server host} -u{User ID} -p --lock-tables=false --column-statistics=0 --single-transaction --no-create-info {DB name} {Space separated table list} --where {Condition if you need}" > output_file
 ```
 
-Inspecting Binlog.
+Inspecting Binlog(SUPER or REPLICATION_CLIENT grant is required).
 
 ```shell
 sudo docker run -it --rm mysql mysqlbinlog -h{Server host} -u{User ID} -p --read-from-remote-server --stop-position=50000 mysql-bin.000636
