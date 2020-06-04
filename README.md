@@ -152,6 +152,12 @@ Dumping out specific table data.
 sudo docker run -i mysql sh -c "exec mysqldump -h{Server host} -u{User ID} -p --lock-tables=false --column-statistics=0 --single-transaction --no-create-info {DB name} {Space separated table list} --where {Condition if you need}" > output_file
 ```
 
+Inspecting Binlog.
+
+```shell
+sudo docker run -it --rm mysql mysqlbinlog -h{Server host} -u{User ID} -p --read-from-remote-server --stop-position=50000 mysql-bin.000636
+```
+
 # Docker - Kafka
 
 Resetting offset of the topic of the specific consummer group.
@@ -191,6 +197,18 @@ Monitoring partition of topic.
 ```shell
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-topics.sh \
     --describe --zookeeper {Zookeeper host/node. e.g. zookeeper-1:2181/kafka} --topic {Topic name}
+```
+
+Inspecting debezium offset.
+
+```shell
+docker run -it --rm edenhill/kafkacat:1.5.0 -b {Server list. e.g. kafka-1:9092} -C -t cdc_connect_offsets -f 'Partition(%p) %k %s\n'
+```
+
+Changing debezium offset. See (How to change the offsets of the source database?)[https://debezium.io/documentation/faq/#how_to_change_the_offsets_of_the_source_database].
+
+```shell
+echo '["mysql-connector-db",{"server":"cdc_db"}]|{"ts_sec":1590117090,"file":"mysql-bin.000636","pos":57737,"row":1,"server_id":1000241,"event":2}' | docker run -i -a stdin --rm edenhill/kafkacat:1.5.0 -P -b {Server list. e.g. kafka-1:9092} -t cdc_connect_offsets -K \| -p {Partition Number}
 ```
 
 # CURL
