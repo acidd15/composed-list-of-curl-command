@@ -10,6 +10,18 @@ Adding a route.
 sudo route -n add -net {Target IP} {Gateway IP}
 ```
 
+Checking swap spaces.
+
+```shell
+cat /proc/swaps
+```
+
+Checking hw info.
+
+```shell
+lshw
+```
+
 Setting apt proxy.
 
 ```shell
