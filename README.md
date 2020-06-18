@@ -79,6 +79,12 @@ Customizing shell prompt.
 export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[0;101m\][\d \t]\[\033[0;35m\] \u\[\033[0m\]:\W $ "
 ```
 
+Seeing using ports of PID.
+
+```
+lsof -Pan -p PID -i
+```
+
 # Docker
 
 Installing docker in Ubuntu.
