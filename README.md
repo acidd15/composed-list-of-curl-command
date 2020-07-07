@@ -156,6 +156,12 @@ Creating docker network.
 docker network create --gateway 10.255.0.1 --subnet 10.255.0.0/16 debezium-docker-net
 ```
 
+Running a simple http server.
+
+```shell
+docker run --name simple-http-server -v $PWD:/usr/share/nginx/html:ro -d -p 8080:80 nginx
+```
+
 # Docker - MySQL
 
 Using MySQL client with MySQL docker.
