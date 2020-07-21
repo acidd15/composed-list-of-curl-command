@@ -85,6 +85,12 @@ Seeing using ports of PID.
 lsof -Pan -p PID -i
 ```
 
+Finding process which uses specific port.
+
+```
+lsof -i tcp:8000
+```
+
 # Docker
 
 Installing docker in Ubuntu.
