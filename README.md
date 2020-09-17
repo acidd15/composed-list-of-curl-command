@@ -185,7 +185,7 @@ sudo docker run -i mysql sh -c "exec mysqldump -h{Server host} -u{User ID} -p --
 Inspecting Binlog(SUPER or REPLICATION_CLIENT grant is required).
 
 ```shell
-sudo docker run -it --rm mysql mysqlbinlog -h{Server host} -u{User ID} -p --read-from-remote-server --stop-position=50000 mysql-bin.000636
+sudo docker run -it --rm mysql mysqlbinlog -h{Server host} -u{User ID} -p --read-from-remote-server --start-position=40000 --stop-position=50000 mysql-bin.000636
 ```
 
 # Docker - Kafka
