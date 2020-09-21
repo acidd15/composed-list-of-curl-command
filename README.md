@@ -91,6 +91,12 @@ Finding process which uses specific port.
 lsof -i tcp:8000
 ```
 
+Checking network connection.
+
+```
+echo > "/dev/tcp/{HOST IP}/{PORT}"
+```
+
 # Docker
 
 Installing docker in Ubuntu.
