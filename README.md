@@ -183,7 +183,7 @@ docker commit {stopped container_id} {new tag name}
 Start container with a different entrypoint.
 
 ```shell
-docker run -ti --entrypoint=sh {tag name}
+docker run -it --entrypoint=sh {tag name}
 ```
 
 # Docker - MySQL
