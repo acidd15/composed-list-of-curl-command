@@ -174,6 +174,18 @@ Running a simple http server.
 docker run --name simple-http-server -v $PWD:/usr/share/nginx/html:ro -d -p 8080:80 nginx
 ```
 
+Commit stopped cotainer.
+
+```
+docker commit {stopped container_id} {new tag name} 
+```
+
+Start container with a different entrypoint.
+
+```shell
+docker run -ti --entrypoint=sh {tag name}
+```
+
 # Docker - MySQL
 
 Using MySQL client with MySQL docker.
