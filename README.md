@@ -226,7 +226,7 @@ Producing a message without a key.
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} bash -c "echo 'test' | /kafka/bin/kafka-console-producer.sh \\
     --broker-list kafka-1:9092 \\
     --topic test_topic"
-``
+```
 
 Consumming a topic.
 
