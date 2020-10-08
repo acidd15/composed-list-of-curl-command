@@ -220,7 +220,15 @@ Describing status of all consummer group.
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-consumer-groups.sh --bootstrap-server {Server list. e.g. kafka-1:9092} --all-groups --describe
 ```
 
-Monitoring topic.
+Producing a message without a key.
+
+```
+docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} bash -c "echo 'test' | /kafka/bin/kafka-console-producer.sh \\
+    --broker-list kafka-1:9092 \\
+    --topic test_topic"
+``
+
+Consumming a topic.
 
 ```shell
 docker-compose -f docker-compose-something.yaml exec {Service name of kafka container} /kafka/bin/kafka-console-consumer.sh \
