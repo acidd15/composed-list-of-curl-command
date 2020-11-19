@@ -97,6 +97,12 @@ Checking network connection without telnet.
 echo > "/dev/tcp/{HOST IP}/{PORT}"
 ```
 
+Zookeeper server information.
+
+```
+echo srvr | nc localhost 21811
+```
+
 # Docker
 
 Installing docker in Ubuntu.
