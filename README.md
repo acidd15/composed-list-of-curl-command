@@ -103,6 +103,28 @@ Zookeeper server information.
 echo srvr | nc localhost 21811
 ```
 
+Netstat without netstat(see: https://dev.to/trexinc/netstat-without-netstat-inside-containers-9ak).
+
+```
+grep -v "rem_address" /proc/net/tcp
+```
+
+```
+0: 00000000:1F40 00000000:0000 0A 00000000:00000000 00:00000000 00000000     0        0 6106109 1 ffff889f5ff35800 100 0 0 10 0
+1: 00000000:0C6D 00000000:0000 0A 00000000:00000000 00:00000000 00000000     0        0 6112091 1 ffff889ee7e96000 100 0 0 10 0
+2: 611F820A:0C6D E61E820A:A5E6 01 00000000:00000000 00:00000000 00000000     0        0 6122922 1 ffff889d2b712800 20 0 0 10 -1
+3: 611F820A:0C6D E61E820A:A5EE 01 00000000:00000000 00:00000000 00000000     0        0 6118270 1 ffff889e736e3000 20 4 21 10 -1
+4: 611F820A:1F40 F21F820A:DE3E 01 00000000:00000000 00:00000000 00000000     0        0 6119808 1 ffff889e78be7000 20 4 3 10 -1
+5: 611F820A:0C6D E61E820A:A5FC 01 00000000:00000000 00:00000000 00000000     0        0 6128773 1 ffff889e78bf2000 20 4 33 10 -1
+```
+
+The two left columns are source address and port and destination address and port in hex. The first two rows in this example correlate to listening ports (the destination is all zeros) and the rest are open connections.
+
+```
+grep -v "rem_address" /proc/net/tcp | awk 'function hextonum(str, ret, n, i, k, c) {if (str ~ /^0[xX][0-9a-FA-F]+$/) {str = substr(str, 3);n = length(str);ret = 0;for (i = 1; i <= n; i++) {c = substr(str, i, 1);c = tolower(c);k = index("123456789abcdef", c);ret = ret * 16 + k}} else ret = "NOT-A-NUMBER";return ret} {y=hextonum("0x"substr($2,index($2,":")-2,2));x=hextonum("0x"substr($3,index($3,":")-2,2));for (i=5; i>0; i-=2) {x = x"."hextonum("0x"substr($3,i,2));y = y"."hextonum("0x"substr($2,i,2));} print y":"hextonum("0x"substr($2,index($2,":")+1,4))" "x":"hextonum("0x"substr($3,index($3,":")+1,4));}'
+
+```
+
 # Docker
 
 Installing docker in Ubuntu.
